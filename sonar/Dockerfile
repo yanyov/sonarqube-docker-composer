@@ -28,6 +28,6 @@ RUN mkdir -p /etc/supervisor/conf.d /var/log/supervisor
 COPY supervisor/supervisord.conf /etc/supervisord.conf
 COPY supervisor/cron.conf /etc/supervisor/conf.d/cron.conf
 COPY supervisor/sonarqube.conf /etc/supervisor/conf.d/sonarqube.conf
-COPY backup.sh /opt/sonarqube/bin
+COPY backup.sh /opt/sonarqube/bin/sonarqube_backup
 COPY crontab /etc/crontabs/root
 CMD ["/usr/bin/supervisord", "-nc", "/etc/supervisord.conf"]

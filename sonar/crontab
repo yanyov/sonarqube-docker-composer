@@ -1,1 +1,1 @@
-0       0       *       *       *       /opt/sonarqube/bin/backup.sh
+0       0       *       *       *       /opt/sonarqube/bin/sonarqube_backup

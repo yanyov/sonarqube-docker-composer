@@ -6,10 +6,11 @@ retention_policy=14
 remove_backups_older_than=$(date -d "$retention_policy days ago" +%Y-%m-%d-%H-%M)
 file=/tmp/postgresql_backups
 
+mkdir -p $backup_folder
 #POSTGRES_USER is env variable from docker-compose
-pg_dumpall -U $POSTGRES_USER > db.out
+pg_dumpall -U $POSTGRES_USER > $postgresql_backup_archive
 
-echo "Backup $sonarqube_backup_archive was created."
+echo "Backup $postgresql_backup_archive was created."
 
 ls -l $backup_folder | awk '{print $9}' | sort -n > $file
 sed -i '/^$/d' $file
